@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<p id="demo"></p>
+<script>
+    "use strict";
+
+    function Input() {
+
+        let numbers = [];
+
+        while (true) {
+
+            let value = parseFloat(prompt("Enter the numbers : "));
+
+            // should we cancel?
+            if (value === "" || value === null || !isFinite(value)) break;
+
+            numbers.push(value);
+            document.getElementById("demo").innerHTML = numbers;
+        }
+
+
+        let btn = document.createElement("button");
+        btn.innerHTML = "Print all Values ";
+        document.body.appendChild(btn);
+
+        btn.onclick = function () {
+            alert(numbers);
+        };
+
+        let btn2 = document.createElement("button");
+        btn2.innerHTML = "Print Minimum Value ";
+        document.body.appendChild(btn2);
+
+
+        btn2.onclick = function () {
+            var minValue = Math.min.apply(null, numbers);
+            alert(minValue)
+
+        }
+
+
+        let btn3 = document.createElement("button");
+        btn3.innerHTML = "Print Maximum Value ";
+        document.body.appendChild(btn3);
+
+        btn3.onclick = function () {
+            var maxValue = Math.max.apply(null, numbers);
+            alert(maxValue)
+        }
+
+
+        let btn4 = document.createElement("button");
+        btn4.innerHTML = "Total summation of all values ";
+        document.body.appendChild(btn4);
+
+        btn4.onclick = function () {
+
+            var sum = 0;
+            for (var i = 0; i < numbers.length; i++) {
+                sum += numbers[i]
+
+            }
+            alert(sum)
+
+
+        }
+
+    }
+    alert(Input());
+</script>
+
+</html>
